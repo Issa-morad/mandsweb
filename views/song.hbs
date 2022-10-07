@@ -1,0 +1,24 @@
+<div class="container text-center">
+    <h1 class="h1-songGrades">Song Grades</h1>
+    {{#if reviews}}
+        {{#if validationError.length}}
+            <p>Couldn't create the song because:</p>
+            <ul class="text-danger">
+                {{#each validationError}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        {{/if}}
+ 
+            <p>The song {{reviews.song}} by {{reviews.artist}} get grade {{reviews.grade}}</p>
+            <p>My review: {{reviews.review}}</p>
+        {{#if isLoggedIn}}
+            <a href="/blog/update-songs/{{reviews.id}}" class="btn btn-secondary">Update</a>
+            <a href="/blog/delete-songs/{{reviews.id}}"class="btn btn-secondary ">Delete</a>
+        {{/if}}
+    {{else}}
+        <p>Song doesn't exist </p>
+    {{/if}}
+   
+   
+</div>

@@ -1,0 +1,41 @@
+<h1>Request page</h1>
+    {{#if SERVER_ERROR}}
+      <p class="text-danger">{{SERVER_ERROR}}</p>
+    {{/if}}
+      <p>Make a request for a song I will grade. Go to the <a href="/start">Start page</a>.</p>
+    {{#if errors.length}}
+      <p>Couldn't create the Request because:</p>
+      <ul class="text-danger">
+        {{#each errors}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+      <form  class=" m-2" id="form" name="form" method="post" action="">
+        Your Name: <br>
+        <input type="text" name="name" value="{{name}}"> <br>
+        Song: <br>
+        <input type="text" name="song" value="{{song}}"> <br>
+        Artist: <br>
+        <input type="text" name="artist" value="{{artist}}"> <br>
+        <input type="submit" name="submit" id="submit" value="Submit message"/>
+    </form>
+  
+<h3>Requested songs:</h3>
+ 
+{{#if gradeRequests.length}}
+  <ul>
+    {{#each gradeRequests}}
+      <li>{{name}}: {{song}} {{artist}}</li>
+      {{#if ../isLoggedIn}}
+        <a href="/request/update-request/{{id}}">Update</a>
+        <a href="/request/delete-request/{{id}}">Delete</a>
+      {{/if}}
+   
+    {{/each}}
+  </ul>
+{{else}}
+  <p>There is no requests yet</p>
+{{/if}}
+
+

@@ -1,0 +1,24 @@
+ <div class="ms-1">
+    <h1>Update comments</h1>
+        {{#if comments}}
+            {{#if errors.length}}
+                <p>Couldn't create the song because:</p>
+                <ul class="text-danger">
+                    {{#each errors}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+ 
+            <p><strong>{{comments.name}}:</strong> {{comments.comment}}</p>
+            <form action="/comment/update-comment/{{comments.id}}" method="post">
+              <input type="text" name="nameU" value="{{comments.name}}">
+              <textarea name="commentU" cols="50" rows="2">{{comments.comment}}</textarea> 
+              <input type="submit" value="Update"class="btn btn-success">
+            </form>
+
+        {{else}}
+          <p>Comment doesn't exist</p>
+        {{/if}}
+    
+</div>

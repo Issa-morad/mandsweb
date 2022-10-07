@@ -1,0 +1,23 @@
+<div ms-2>
+    <h1>Update request</h1>
+        {{#if gradeRequests}}
+           {{#if errors.length}}
+                <p>Couldn't update the request because:</p>
+                <ul class="text-danger">
+                    {{#each errors}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+                <p>{{gradeRequests.name}}: {{gradeRequests.song}} {{gradeRequests.artist}}</p>
+                <form action="/request/update-request/{{gradeRequests.id}}" method="post">
+                    <input type="text" name="nameU" value="{{gradeRequests.name}}">
+                    <input type="text" name="songU" value="{{gradeRequests.song}}">
+                    <input type="text" name="artistU" value="{{gradeRequests.artist}}">
+                    <input type="submit" value="Update"  class="btn btn-secondary">
+                </form>
+      
+        {{else}}
+          <p>Request doesn't exist</p>
+        {{/if}}
+</div>

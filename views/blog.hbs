@@ -1,0 +1,19 @@
+<div class="container my-5">
+    {{#if SERVER_ERROR}}
+        <p class="text-danger">{{SERVER_ERROR}}</p>
+    {{/if}}
+    <h1 class="display-4 text-center">Songs</h1>
+    {{#if reviews.length}}
+        {{#each reviews}}
+            <div class="text-center p-3">
+                <h2><a href="/blog/song/{{id}}" class="h2-link">{{song}}</a></h2>
+                <h3>{{artist}}</h3>
+                <p>{{review}}</p>
+                <p class="fw-bold">{{grade}}/10</p>
+                <a href="/comment" class="btn btn-secondary">Comment</a>
+            </div>
+        {{/each}}
+    {{else}}
+        <p class="text-center">There is no songs yet</p>
+    {{/if}}
+</div>

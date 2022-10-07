@@ -1,0 +1,16 @@
+<h1>Login page</h1>
+{{#if errors.length}}
+    <p class="text-danger">{{errors}}</p>
+{{/if}}
+
+<p>This is the login page. Go to the <a href="/start">Start page</a>.</p>
+<form action="" method="post">
+    <div>
+        Username: <input type="text" name="username">
+    </div>
+    <div>
+        Password: <input type="password" name="password">
+    </div>
+        <input type="submit" value="Login">
+</form>
+   

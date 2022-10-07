@@ -1,0 +1,34 @@
+<div class="ps-2">
+    <h1 class="display-6 "> Welcome to Comment page !</h1>
+    {{#if SERVER_ERROR}}
+        <p class="text-danger">{{SERVER_ERROR}}</p>
+    {{/if}}
+    {{#if errors.length}}
+        <p>Couldn't create the comment because:</p>
+        <ul class="text-danger">
+            {{#each errors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    <form  class=" m-2" id="form" name="form" method="post" action="">
+        Your Name: <br>
+        <input type="text" name="name" value="{{name}}"> <br>
+        Your Comment: <br>
+        <textarea name="comment" id="comment" cols="25" rows="5">{{comment}}</textarea> <br>
+        <input type="submit" name="submit" id="submit" value="Submit message"/> 
+    </form>
+    {{#if comments.length}}
+        {{#each comments}}
+            <p><strong>{{name}}:</strong> {{comment}}</p>
+            {{#if ../isLoggedIn}}
+                <a href="/comment/update-comment/{{id}}">Update</a>
+
+                <a href="/comment/delete-comment/{{id}}">Delete</a>
+            {{/if}}
+        {{/each}}
+    {{else}}
+        <p>There is no comments yet</p>
+    {{/if}}
+</div>
+

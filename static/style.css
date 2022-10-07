@@ -1,0 +1,42 @@
+header{
+    margin-top: 15px;
+}
+#header1{
+    background-color: aliceblue;
+    height: 60px;
+}
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-item {
+    padding: 20px;
+    list-style: none;
+    text-transform: capitalize;
+}
+.container1{
+    display: block;
+    margin-left: 180px;
+    margin-right: auto;
+    width: 50%;
+}
+#footer1{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+#main1{
+    background-color:rgb(194, 194, 208);
+}
+.h2-link{
+    color: black;
+}
+.h2-link:hover{
+    color:rgb(4, 113, 109);
+}
+.h1-songGrades{
+    color:rgb(4, 113, 109) ;
+}

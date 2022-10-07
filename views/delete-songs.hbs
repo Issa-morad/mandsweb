@@ -1,0 +1,16 @@
+<div class="ms-2">
+    <h1>Delete songs</h1>
+    {{#if errors.length}}
+       <p class="mt-2 text-danger">{{errors}}</p>
+    {{else}}
+        {{#if reviews}}
+            <p>The song {{reviews.song}} by {{reviews.artist}} get grade {{reviews.grade}}</p>
+            <p>My review: {{reviews.review}}</p>
+            <form action="/blog/delete-songs/{{reviews.id}}" method="post">
+                <input type="submit" value="Delete" class=" mt-2 btn btn-danger">
+            </form>
+        {{else}}
+            <p>Song doesn't exist</p>
+        {{/if}}
+    {{/if}}
+</div>

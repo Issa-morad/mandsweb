@@ -1,0 +1,26 @@
+<h1>Create Song</h1>
+<div class="ps-1">
+    {{#if errors.length}}
+        <p>Couldn't create the song because:</p>
+        <ul class="text-danger">
+            {{#each errors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    <form action="" method="post">
+        <div>
+            Song Name: <input type="text" name="songname" value="{{song}}">
+        </div>
+        <div>
+            Artist Name:<input type="text" name="artistname" value="{{artist}}">
+        </div>
+        <div>
+            Review:<input type="text" name="review" value="{{review}}">
+        </div>
+        <div>
+            Grade:<input type="text" name="grade" value="{{grade}}">
+        </div>
+            <input type="submit" value="Create Song">
+    </form>
+</div>

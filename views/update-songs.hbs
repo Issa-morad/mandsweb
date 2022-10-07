@@ -1,0 +1,30 @@
+<div class="ms-1">
+    <h1>Update songs</h1>
+       {{#if reviews}}
+            {{#if errors.length}}
+                <p>Couldn't create the song because:</p>
+                <ul class="text-danger">
+                    {{#each errors}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+            <form action="/blog/update-songs/{{reviews.id}}" method="post">
+                <div>
+                    <input type="text" name="songReview"value="{{reviews.song}}">
+                </div>
+                <div>
+                    <input type="text" name="artistReview"value="{{reviews.artist}}">
+                </div>
+                <div>
+                    <input type="text" name="myReview"value="{{reviews.review}}">
+                </div>
+                <div>
+                    <input type="text" name="gradeReview"value="{{reviews.grade}}">
+                </div>  
+                    <input type="submit" value="Update" class="btn btn-success mt-1">
+            </form>
+        {{else}}
+            <p>Song doesn't exist</p>
+        {{/if}}
+</div>

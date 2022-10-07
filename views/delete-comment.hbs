@@ -1,0 +1,15 @@
+<div>
+    <h1>Delete comment</h1>
+    {{#if errors.length}}
+       <p class="mt-2 text-danger">{{errors}}</p>
+    {{else}}
+        {{#if comments}}
+            <p><strong>{{comments.name}}:</strong> {{comments.comment}}</p>
+            <form action="/comment/delete-comment/{{comments.id}}" method="post">
+                <input type="submit" value="Delete" class=" mt-2 btn btn-danger">
+            </form>
+        {{else}}
+            <p>The comment does not exist</p>
+        {{/if}}
+    {{/if}}
+</div>

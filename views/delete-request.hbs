@@ -1,0 +1,15 @@
+<div>
+    <h1>Delete request</h1>
+    {{#if errors.length}}
+       <p class="mt-2 text-danger">{{errors}}</p>
+    {{else}}
+        {{#if gradeRequests}}
+            <p>{{gradeRequests.name}}: {{gradeRequests.song}} {{gradeRequests.artist}}</p>
+            <form action="/request/delete-request/{{gradeRequests.id}}" method="post">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        {{else}}
+            <p>Request doesn't exist</p>
+        {{/if}}
+    {{/if}}
+</div>
